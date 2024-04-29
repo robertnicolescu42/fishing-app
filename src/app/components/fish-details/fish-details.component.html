@@ -1,0 +1,21 @@
+<div class="container" data-bs-theme="dark">
+  <h2>Fish Details</h2>
+  <div *ngIf="fish">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ fish.name }}</h5>
+        <p class="card-text">Habitat: {{ fish.habitat }}</p>
+        <p class="card-text">Size: {{ fish.size }}</p>
+        <p class="card-text">Weight: {{ fish.weight }}</p>
+        <p class="card-text">Diet: {{ fish.diet }}</p>
+        <p class="card-text">Baits: {{ fish.baits.join(", ") }}</p>
+        <p class="card-text">Time of Year: {{ fish.timeOfYear }}</p>
+        <p class="card-text">Time of Day: {{ fish.timeOfDay }}</p>
+        <p class="card-text">Best Spots: {{ fish.bestSpots }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!fish">
+    <p>Sorry, fish details not found.</p>
+  </div>
+</div>

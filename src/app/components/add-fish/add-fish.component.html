@@ -1,0 +1,66 @@
+<div class="container" data-bs-theme="dark">
+  <h2>Add a New Fish</h2>
+  <form (submit)="addFish()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]="newFish.name"
+        required
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="habitat">Habitat</label>
+      <input
+        type="text"
+        class="form-control"
+        id="habitat"
+        [(ngModel)]="newFish.habitat"
+        required
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="size">Size</label>
+      <input
+        type="text"
+        class="form-control"
+        id="size"
+        [(ngModel)]="newFish.size"
+        required
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="photos">Photos</label>
+      <input
+        type="file"
+        class="form-control-file"
+        id="photos"
+        (change)="onPhotoChange($event)"
+        multiple
+        accept="image/*"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Fish</button>
+  </form>
+
+  <!-- Display preview of selected photos -->
+  <div class="mt-4">
+    <h5>Selected Photos Preview</h5>
+    <div *ngFor="let url of photoUrls">
+      <img
+        [src]="url"
+        class="img-thumbnail"
+        style="max-width: 200px; max-height: 200px"
+      />
+    </div>
+  </div>
+</div>
